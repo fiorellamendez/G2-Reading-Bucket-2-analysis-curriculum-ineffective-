@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 2 Reading Gap Analysis — Bucket 2: Curriculum Ineffective</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+  button { font-family: inherit; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useMemo } = React;
+
+const STUDENTS_DATA = [{"name":"Aiden Richardson","bucket":"curriculum efficiency","working_grade":"2","growth":"1.71","insights":"Aiden's pattern is heavily literature-focused \u2014 4 of his 5 misses involve fiction passages (The Missing Lunchbox, Skateboarding Success). He struggles with pulling the right details from stories and with understanding illustrations. He also chose \"lucky\" instead of \"smart\" for a vocabulary word, suggesting he may not be using context clues effectively. Informational text seems relatively stronger for him.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Characters","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Character Traits","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"10","concept":"Determine the meaning of words and phrases in a text relevant to a grade 2 topic. Use sentence-level context as a clue to meaning.","standard":"RI.2.4; L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about specific key details in a story","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Refer to parts of a text to support an answer","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":8,"never_count":5,"forgot_count":3,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"66.7%","detail":"10/15"}]},{"name":"Anthem Thomas","bucket":"curriculum efficiency","working_grade":"2","growth":"1.69","insights":"Anthem has a vocabulary problem \u2014 2 of his 5 misses are straight vocabulary/context clue questions (L.2.4.a), and he also missed a phonics question. He picked \"boring\" instead of \"annoying\" and \"walked quickly past\" instead of \"looked over carefully.\" The other 2 misses were a key detail and a connections question. This student likely needs targeted vocabulary and word meaning work.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"3","concept":"Isolate and pronounce sounds in spoken single-syllable words. Know the spelling-sound correspondences for common consonant digraphs.","standard":"RF.1.2.c; RF.1.3.c","lesson":"Read Words with silent letters","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"6","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"11","concept":"Describe the connection between events, ideas, or steps in a text. Ask and answer questions about key details.","standard":"RI.2.3; RI.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about specific key details in a story","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Refer to parts of a text to support an answer","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"15","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":6,"never_count":6,"forgot_count":0,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"66.7%","detail":"10/15"}]},{"name":"Brenna Valdez","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Brenna is doing well overall. Her misses are spread thin \u2014 2 informational key details, 2 literature key details, and 1 vocabulary. No single glaring weakness. She likely just needs continued general reading practice.","questions":[{"test":"Alpha 2024 Reading 2.2","qnum":"10","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.2","qnum":"15","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"15","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"11","concept":"Describe the connection between events, ideas, or steps in a text. Ask and answer questions about key details.","standard":"RI.2.3; RI.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about specific key details in a story","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Refer to parts of a text to support an answer","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":7,"never_count":4,"forgot_count":3,"accuracy":[{"test":"Reading 2.2","type":"Test Out","score":"86.7%","detail":"13/15"},{"test":"Reading 2.3","type":"Test Out","score":"80.0%","detail":"12/15"}]},{"name":"Charlie Booth","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Charlie only missed 2 \u2014 the central message of The Missing Lunchbox and a connections question about The First Flight. Both are higher-order thinking questions. He's solid on the basics.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Topic","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Idea in Paragraph","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"11","concept":"Describe the connection between events, ideas, or steps in a text. Ask and answer questions about key details.","standard":"RI.2.3; RI.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":3,"never_count":1,"forgot_count":2,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"86.7%","detail":"13/15"}]},{"name":"Charlotte Buquoi","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Charlotte is right on the border. Her 4 misses split evenly between literature and informational key details (2 each). She picked answers that are \"close but not quite\" \u2014 like saying the dad \"wants to help clean Maya's room\" instead of \"wants Maya to keep things organized.\" This suggests she understands the passage but isn't reading the answer choices carefully enough to distinguish between similar options.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Characters","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Character Traits","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Use details from the text to infer answers","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"11","concept":"Describe the connection between events, ideas, or steps in a text. Ask and answer questions about key details.","standard":"RI.2.3; RI.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true}],"total_gaps":6,"never_count":2,"forgot_count":4,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"73.3%","detail":"11/15"}]},{"name":"Cora Ishaq","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"On the Reading 2.3 test that does have data, she missed 5 out of 15 (66.7%), with gaps in central message, vocabulary, main topic, and key details. I'd flag that 2.2 data quality issue \u2014 you really can't diagnose her from that test.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Topic","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Idea in Paragraph","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"6","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Topic","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Idea in Paragraph","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Use details from the text to infer answers","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Locate facts stated in a text","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about specific key details in a story","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Refer to parts of a text to support an answer","mastered":true,"never_learned":false,"forgot":true}],"total_gaps":9,"never_count":1,"forgot_count":8,"accuracy":[{"test":"Reading 2.2","type":"Test Out","score":"55.0%","detail":"11/20"},{"test":"Reading 2.3","type":"Test Out","score":"66.7%","detail":"10/15"}]},{"name":"Dean Woods","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Dean's pattern is heavily literature-focused, with 3 misses on fiction key details and central message from the same stories (Missing Lunchbox, Skateboarding Success). He also missed a vocabulary question. His wrong answers show he's getting the gist of the story but picking answers about the wrong character or the wrong event.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"11","concept":"Describe the connection between events, ideas, or steps in a text. Ask and answer questions about key details.","standard":"RI.2.3; RI.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about specific key details in a story","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Refer to parts of a text to support an answer","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"15","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true}],"total_gaps":7,"never_count":2,"forgot_count":5,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"66.7%","detail":"10/15"}]},{"name":"Elijah Hunter","bucket":"curriculum efficiency","working_grade":"2","growth":"1.24","insights":"His main gap is narrow: going back to the text for evidence on informational passages. He's currently enrolled in ClearFluency Grade 1 Hole-Filling, but given that he scored 86.7% on a Grade 2 test, he might just need a small targeted push on RI.2.1 skills to get over the finish line. Of all the students in this group, Elijah is probably the closest to passing with the least intervention needed.","questions":[{"test":"Alpha 2024 Reading 2.2","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"14","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"14","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":4,"never_count":4,"forgot_count":0,"accuracy":[{"test":"Reading 2.2","type":"End of Course","score":"86.7%","detail":"13/15"}]},{"name":"Ellis Granados","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Ellis has a scattered profile \u2014 misses are spread across literature key details, central message, main topic, vocabulary, and character response. That breadth suggests a general comprehension issue more than one isolated skill gap. Notably, he confused \"angry\" with \"disappointed\" on the character feelings question and missed the vocabulary context clue for \"surveyed.\" He may be reading too quickly and relying on gut feeling rather than rereading.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"4","concept":"Determine the central message or lesson of a story. Ask and answer questions about key details in a text.","standard":"RL.2.2; RL.2.1","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Use details from the text to infer answers","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"14","concept":"Describe how characters respond to events and challenges. Ask and answer questions about key details. Identify words and phrases that suggest feelings.","standard":"RL.2.3; RL.2.1; RL.1.4","lesson":"Identify Characters","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"14","concept":"Describe how characters respond to events and challenges. Ask and answer questions about key details. Identify words and phrases that suggest feelings.","standard":"RL.2.3; RL.2.1; RL.1.4","lesson":"Identify Character Traits","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"15","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true}],"total_gaps":10,"never_count":8,"forgot_count":2,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"60.0%","detail":"9/15"}]},{"name":"Ethan Bale","bucket":"2","working_grade":"G2","growth":"0.79","insights":"Ethan's biggest issue is going back to the text for evidence \u2014 he missed 3 informational key detail questions (RI.2.1), all from different passages (Library of Alexandria, Weather Watchers). His wrong answers sound plausible but aren't actually what the text says (e.g., he said the library \"turned into a palace\" when it \"slowly disappeared\"). He also confused the main idea with a supporting detail on both a fiction and nonfiction passage. There's a phonics gap too \u2014 he thought \"phone\" starts like \"home\" instead of recognizing the \"ph\" digraph.","questions":[{"test":"Alpha 2024 Reading 2.7","qnum":"3","concept":"Know and apply grade-level phonics and word analysis skills. Know the spelling-sound correspondences for common consonant digraphs.","standard":"RF.1.3.a","lesson":"Read Words with Silent Letters","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"4","concept":"Recount stories, including fables and folktales from diverse cultures, and determine their central message, lesson, or moral.","standard":"RL.2.2","lesson":"Identify Main Topic","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.7","qnum":"4","concept":"Recount stories, including fables and folktales from diverse cultures, and determine their central message, lesson, or moral.","standard":"RL.2.2","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"6","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about specific key details in a story","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"6","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Refer to parts of a text to support an answer","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"8","concept":"Identify the main topic of a multiparagraph text as well as the focus of specific paragraphs within the text.","standard":"RI.2.2","lesson":"Identify Main Topic","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.7","qnum":"8","concept":"Identify the main topic of a multiparagraph text as well as the focus of specific paragraphs within the text.","standard":"RI.2.2","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"9","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.7","qnum":"9","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"11","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.7","qnum":"11","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.7","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.7","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":13,"never_count":8,"forgot_count":5,"accuracy":[{"test":"Reading 2.7","type":"End of Course","score":"53.3%","detail":"8/15"}]},{"name":"Nate Kelly","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Nate is close to passing. His 3 misses are literature key details (2) and informational main topic (1). Same Q13 on Skateboarding Success that tripped up many students, plus the illustrations question on Missing Lunchbox and the First Flight main topic. A small amount of targeted practice should push him over.","questions":[{"test":"","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Characters","mastered":false,"never_learned":true,"forgot":false},{"test":"","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Character Traits","mastered":false,"never_learned":true,"forgot":false},{"test":"","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":5,"never_count":5,"forgot_count":0,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"80.0%","detail":"12/15"}]},{"name":"Pablo Cortazar","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Pablo has the most data to work with, and the pattern is clear: informational key details (5 misses) and vocabulary (3 misses) are his biggest weaknesses. He consistently picks answers that sound reasonable but aren't supported by the text \u2014 for example, saying Bell's father \"forced him to study acoustics\" when the real answer was that his mother was nearly deaf. He also misidentifies main topics. Across 3 different tests, the same weaknesses keep showing up, which makes the diagnosis reliable.","questions":[{"test":"Alpha 2024 Reading 2.2","qnum":"5","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.2","qnum":"5","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"10","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.2","qnum":"12","concept":"Identify the main topic of a multiparagraph text as well as the focus of specific paragraphs within the text.","standard":"RI.2.2","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"12","concept":"Identify the main topic of a multiparagraph text as well as the focus of specific paragraphs within the text.","standard":"RI.2.2","lesson":"Identify Main Idea in Paragraph","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.2","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.2","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.2","qnum":"15","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.2","qnum":"15","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Characters","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Character Traits","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Topic","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2; CCRA.R.2","lesson":"Identify Main Idea in Paragraph","mastered":true,"never_learned":false,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Use details from the text to infer answers","mastered":true,"never_learned":false,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"9","concept":"Ask and answer questions about key details in a text. Determine the meaning of words and phrases in a text relevant to a grade 2 topic.","standard":"RI.2.1; RI.2.4","lesson":"Locate facts stated in a text","mastered":false,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":false,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"15","concept":"Determine or clarify the meaning of unknown and multiple-meaning words and phrases. Use sentence-level context as a clue to the meaning of a word or phrase.","standard":"L.2.4.a","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.4","qnum":"3","concept":"Know and apply grade-level phonics and word analysis skills. Identify words with inconsistent but common spelling-sound correspondences.","standard":"RF.2.3.e","lesson":"Read Words with Silent Letters","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.4","qnum":"7","concept":"Use sentence-level context as a clue to the meaning of a word or phrase. Interpret words and phrases as used in a text.","standard":"L.2.4.a; CCRA.R.4","lesson":"Use context clues to determine the meaning of unknown words","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.4","qnum":"11","concept":"Ask and answer questions to demonstrate understanding of key details. Read closely to determine what the text says explicitly.","standard":"RI.2.1; CCRA.R.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.4","qnum":"11","concept":"Ask and answer questions to demonstrate understanding of key details. Read closely to determine what the text says explicitly.","standard":"RI.2.1; CCRA.R.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.4","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.4","qnum":"12","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text. Locate specific information in the passage.","standard":"RI.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.4","qnum":"14","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Answer questions about key details","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.4","qnum":"14","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Locate facts stated in a text","mastered":false,"never_learned":true,"forgot":false}],"total_gaps":25,"never_count":11,"forgot_count":12,"accuracy":[{"test":"Reading 2.2","type":"Test Out","score":"66.7%","detail":"10/15"},{"test":"Reading 2.3","type":"Test Out","score":"66.7%","detail":"10/15"},{"test":"Reading 2.4","type":"Test Out","score":"66.7%","detail":"10/15"}]},{"name":"Phoenix Smith","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"2 literature key detail misses, 1 informational main topic, 1 informational key detail. Phoenix picked \"airplanes today are faster and safer\" as the main topic of a passage that was really about the Wright brothers inventing the first airplane. This is a classic case of picking a true statement that isn't the main idea.","questions":[{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Characters","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"7","concept":"Use information from illustrations and words to demonstrate understanding of characters, setting, or plot. Ask and answer questions about key details.","standard":"RL.2.7; RL.2.1","lesson":"Identify Character Traits","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2;","lesson":"Identify Main Topic","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"8","concept":"Identify the main topic of a multiparagraph text. Determine central ideas or themes and analyze their development.","standard":"RI.2.2;","lesson":"Identify Main Idea in Paragraph","mastered":false,"never_learned":true,"forgot":false},{"test":"Alpha 2024 Reading 2.3","qnum":"11","concept":"Describe the connection between events, ideas, or steps in a text. Ask and answer questions about key details.","standard":"RI.2.3; RI.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true},{"test":"Alpha 2024 Reading 2.3","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true}],"total_gaps":6,"never_count":1,"forgot_count":5,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"73.3%","detail":"11/15"}]},{"name":"Tristan Lawrence","bucket":"curriculum efficiency","working_grade":"2","growth":"0","insights":"Tristan also only missed 2, both on the Skateboarding Success passage (Q13 and Q14 \u2014 key details and character feelings). This looks more like one tricky passage than a skill gap.","questions":[{"test":"","qnum":"13","concept":"Ask and answer such questions as who, what, where, when, why, and how to demonstrate understanding of key details in a text.","standard":"RL.2.1","lesson":"Use an events sequence map","mastered":true,"never_learned":false,"forgot":true},{"test":"","qnum":"14","concept":"Describe how characters respond to events and challenges. Ask and answer questions about key details. Identify words and phrases that suggest feelings.","standard":"RL.2.3; RL.2.1; RL.1.4","lesson":"Identify Characters","mastered":true,"never_learned":false,"forgot":true},{"test":"","qnum":"14","concept":"Describe how characters respond to events and challenges. Ask and answer questions about key details. Identify words and phrases that suggest feelings.","standard":"RL.2.3; RL.2.1; RL.1.4","lesson":"Identify Character Traits","mastered":true,"never_learned":false,"forgot":true}],"total_gaps":3,"never_count":0,"forgot_count":3,"accuracy":[{"test":"Reading 2.3","type":"Test Out","score":"86.7%","detail":"13/15"}]}];
+
+
+
+const C = {bg:"#f8f9fc",card:"#ffffff",cardH:"#f1f5f9",acc:"#2563eb",pur:"#7c3aed",red:"#dc2626",redBg:"#fef2f2",redBdr:"#fecaca",amb:"#d97706",ambBg:"#fffbeb",ambBdr:"#fde68a",grn:"#16a34a",grnBg:"#f0fdf4",grnBdr:"#bbf7d0",bdr:"#e2e8f0",txt:"#1e293b",mut:"#64748b",dim:"#94a3b8",shadow:"0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04)"};
+
+function aggByLesson(data, fn) {
+  const m = {};
+  data.forEach(s => s.questions.filter(fn).forEach(q => {
+    if (!m[q.lesson]) m[q.lesson] = new Set();
+    m[q.lesson].add(s.name);
+  }));
+  return Object.entries(m).map(([l, s]) => ({lesson:l, students:[...s], count:s.size})).sort((a,b) => b.count - a.count);
+}
+
+const Tag = ({children, color="blue"}) => {
+  const s = {blue:{bg:"#eff6ff",t:"#2563eb",bdr:"#bfdbfe"},red:{bg:C.redBg,t:C.red,bdr:C.redBdr},amber:{bg:C.ambBg,t:C.amb,bdr:C.ambBdr},green:{bg:C.grnBg,t:C.grn,bdr:C.grnBdr},purple:{bg:"#f5f3ff",t:C.pur,bdr:"#ddd6fe"}}[color]||{bg:"#eff6ff",t:"#2563eb",bdr:"#bfdbfe"};
+  return <span style={{background:s.bg,color:s.t,border:`1px solid ${s.bdr}`,padding:"2px 10px",borderRadius:9999,fontSize:12,fontWeight:600,whiteSpace:"nowrap"}}>{children}</span>;
+};
+
+const Back = ({onClick}) => <button onClick={onClick} style={{background:C.card,border:`1px solid ${C.bdr}`,color:C.mut,padding:"6px 16px",borderRadius:8,cursor:"pointer",fontSize:13,marginBottom:16,boxShadow:C.shadow}}>← Back</button>;
+
+const NavCard = ({icon,title,sub,onClick,color}) => (
+  <button onClick={onClick} style={{background:C.card,border:`1px solid ${C.bdr}`,borderRadius:12,padding:"20px 24px",cursor:"pointer",textAlign:"left",width:"100%",borderLeft:`4px solid ${color}`,boxShadow:C.shadow,transition:"all 0.15s"}}
+    onMouseEnter={e=>{e.currentTarget.style.background=C.cardH;e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 4px 12px rgba(0,0,0,0.1)";}}
+    onMouseLeave={e=>{e.currentTarget.style.background=C.card;e.currentTarget.style.transform="none";e.currentTarget.style.boxShadow=C.shadow;}}>
+    <div style={{fontSize:24,marginBottom:8}}>{icon}</div>
+    <div style={{color:C.txt,fontSize:15,fontWeight:600,marginBottom:4}}>{title}</div>
+    <div style={{color:C.mut,fontSize:13}}>{sub}</div>
+  </button>
+);
+
+const Stat = ({label,value,sub,color,accent}) => (
+  <div style={{background:C.card,border:`1px solid ${C.bdr}`,borderRadius:12,padding:"16px 20px",flex:1,minWidth:140,boxShadow:C.shadow,borderTop:accent?`3px solid ${accent}`:"none"}}>
+    <div style={{color:C.mut,fontSize:11,textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>{label}</div>
+    <div style={{color:color||C.txt,fontSize:28,fontWeight:700}}>{value}</div>
+    {sub&&<div style={{color:C.dim,fontSize:12,marginTop:2}}>{sub}</div>}
+  </div>
+);
+
+const Bar = ({value,max,color,bg,label}) => (
+  <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:6}}>
+    <div style={{width:200,fontSize:12,color:C.mut,textAlign:"right",flexShrink:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{label}</div>
+    <div style={{flex:1,background:"#f1f5f9",borderRadius:4,height:22,position:"relative"}}>
+      <div style={{width:`${(value/max)*100}%`,background:color,borderRadius:4,height:"100%",minWidth:value>0?20:0,transition:"width 0.4s",opacity:0.85}}/>
+      <span style={{position:"absolute",right:6,top:2,fontSize:12,color:C.txt,fontWeight:600}}>{value}</span>
+    </div>
+  </div>
+);
+
+const DataTable = ({headers,rows}) => (
+  <div style={{overflowX:"auto",marginBottom:20,borderRadius:10,border:`1px solid ${C.bdr}`,boxShadow:C.shadow}}>
+    <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
+      <thead><tr>{headers.map((h,i)=><th key={i} style={{background:"#f8fafc",color:C.mut,padding:"10px 14px",textAlign:"left",borderBottom:`2px solid ${C.bdr}`,fontSize:11,textTransform:"uppercase",letterSpacing:0.5,whiteSpace:"nowrap"}}>{h}</th>)}</tr></thead>
+      <tbody>{rows.map((row,ri)=><tr key={ri} style={{background:ri%2===0?"#fff":"#fafbfd"}}>{row.map((cell,ci)=><td key={ci} style={{padding:"10px 14px",color:C.txt,borderBottom:`1px solid ${C.bdr}`,verticalAlign:"top"}}>{cell}</td>)}</tr>)}</tbody>
+    </table>
+  </div>
+);
+
+const Section = ({title,children,accent}) => (
+  <div style={{background:C.card,border:`1px solid ${C.bdr}`,borderRadius:12,padding:20,marginBottom:16,boxShadow:C.shadow,borderTop:accent?`3px solid ${accent}`:"none"}}>
+    <h3 style={{color:C.txt,fontSize:15,fontWeight:700,margin:"0 0 12px"}}>{title}</h3>
+    {children}
+  </div>
+);
+
+// ============ PAGES ============
+
+const HomePage = ({go}) => {
+  const tN = STUDENTS_DATA.reduce((s,st)=>s+st.never_count,0);
+  const tF = STUDENTS_DATA.reduce((s,st)=>s+st.forgot_count,0);
+  const tG = STUDENTS_DATA.reduce((s,st)=>s+st.total_gaps,0);
+  return <div>
+    <div style={{marginBottom:28}}>
+      <div style={{fontSize:11,textTransform:"uppercase",letterSpacing:2,color:C.acc,fontWeight:700,marginBottom:8}}>Bucket 2 · Curriculum Ineffective</div>
+      <h1 style={{color:C.txt,fontSize:28,fontWeight:800,margin:0,lineHeight:1.2}}>Grade 2 Reading Test Gap Analysis</h1>
+      <p style={{color:C.mut,fontSize:14,marginTop:6}}>Students who did not pass an effective grade and did not grow 2× on MAP</p>
+    </div>
+
+    <Section title="Executive Summary" accent={C.acc}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>
+        Across 14 Grade 2 reading students in Bucket 2 (Curriculum Ineffective), we identified <strong style={{color:C.txt}}>112 total lesson-level gaps</strong> from their test results. The analysis reveals a near-even split between two fundamentally different problems:
+      </p>
+      <div style={{display:"flex",gap:12,flexWrap:"wrap",margin:"14px 0"}}>
+        <div style={{background:C.redBg,border:`1px solid ${C.redBdr}`,borderRadius:10,padding:"12px 16px",flex:1,minWidth:200}}>
+          <div style={{color:C.red,fontSize:24,fontWeight:700}}>{tN} gaps ({Math.round(tN/tG*100)}%)</div>
+          <div style={{color:C.red,fontSize:13,fontWeight:600}}>Skills never learned</div>
+          <div style={{color:C.mut,fontSize:12,marginTop:4}}>Students were tested on skills they had never previously mastered in MobyMax</div>
+        </div>
+        <div style={{background:C.ambBg,border:`1px solid ${C.ambBdr}`,borderRadius:10,padding:"12px 16px",flex:1,minWidth:200}}>
+          <div style={{color:C.amb,fontSize:24,fontWeight:700}}>{tF} gaps ({Math.round(tF/tG*100)}%)</div>
+          <div style={{color:C.amb,fontSize:13,fontWeight:600}}>Skills learned but forgotten</div>
+          <div style={{color:C.mut,fontSize:12,marginTop:4}}>Students previously mastered these skills in MobyMax — which has high mastery standards and provides remediation until mastered — but could not apply them on the test</div>
+        </div>
+      </div>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>
+        The top "never learned" gaps — <strong style={{color:C.txt}}>Identify Main Idea in Paragraph</strong> and <strong style={{color:C.txt}}>Locate facts stated in a text</strong> (6 students each) — are largely a consequence of the test-out pathway, not missing curriculum. The top "forgot" gaps — <strong style={{color:C.txt}}>Use context clues</strong> and <strong style={{color:C.txt}}>Use an events sequence map</strong> (6 students each) — indicate that passing a MobyMax lesson once does not ensure retention under test conditions.
+      </p>
+    </Section>
+
+    <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:24}}>
+      <Stat label="Students" value="14" sub="Bucket 2" accent={C.acc}/>
+      <Stat label="Total Gaps" value={tG} sub="lesson-level" accent={C.dim}/>
+      <Stat label="Never Learned" value={tN} sub={`${Math.round(tN/tG*100)}% of gaps`} color={C.red} accent={C.red}/>
+      <Stat label="Forgot" value={tF} sub={`${Math.round(tF/tG*100)}% of gaps`} color={C.amb} accent={C.amb}/>
+    </div>
+
+    <Section title="Key Context" accent={C.pur}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>
+        12 of 14 students took these tests as <strong style={{color:C.txt}}>Test Outs</strong> — not full course completions. When students pass a grade test with 90%+ accuracy, they automatically receive the next grade test. Scoring 60–89% triggers <strong style={{color:C.txt}}>hole-filling lessons</strong> for missed questions only. Below 60% places students in the full course, but most students never reach that threshold.
+      </p>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:"10px 0 0"}}>
+        <strong style={{color:C.red}}>"Never learned"</strong> gaps typically mean the student was never taught this skill because they skipped the full course — they tested out of earlier grades and jumped to Grade 2 testing. <strong style={{color:C.amb}}>"Forgot"</strong> means the student previously mastered this skill in MobyMax but couldn't apply it on the test.
+      </p>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:"10px 0 0"}}>
+        Only <strong style={{color:C.txt}}>Ethan Bale</strong> (End of Course, Reading 2.7) and <strong style={{color:C.txt}}>Elijah Hunter</strong> (End of Course, Reading 2.2) completed the actual curriculum before testing. Their results are the true test of curriculum coverage.
+      </p>
+    </Section>
+
+    <h3 style={{color:C.txt,fontSize:15,fontWeight:700,marginBottom:12}}>Deep Dive Sections</h3>
+    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:12}}>
+      <NavCard icon="📊" title="1. Skills Never Learned" sub={`${tN} gaps across 12 skills`} onClick={()=>go("never")} color={C.red}/>
+      <NavCard icon="🔄" title="2. Skills Forgotten" sub={`${tF} gaps across 11 skills`} onClick={()=>go("forgot")} color={C.amb}/>
+      <NavCard icon="💡" title="3. Explanations & Insights" sub="Root cause analysis" onClick={()=>go("insights")} color={C.pur}/>
+      <NavCard icon="🛠" title="4. Proposed Solutions" sub="Online-first interventions" onClick={()=>go("solutions")} color={C.grn}/>
+    </div>
+    <NavCard icon="👤" title="5. Student Profiles" sub="Individual deep dives for all 14 students" onClick={()=>go("students")} color={C.acc}/>
+  </div>;
+};
+
+const NeverPage = ({go}) => {
+  const data = aggByLesson(STUDENTS_DATA, q=>q.never_learned);
+  return <div>
+    <Back onClick={()=>go("home")}/>
+    <h2 style={{color:C.txt,fontSize:22,fontWeight:800,margin:"0 0 6px"}}>1. Skills Not Covered by the Hole-Filling Pathway</h2>
+    <p style={{color:C.mut,fontSize:13,marginBottom:20}}>MobyMax lessons students were tested on but had never previously mastered. For test-out students, this reflects skills the hole-filling pathway didn't reach.</p>
+    {data.map(d=><Bar key={d.lesson} value={d.count} max={14} color="#ef4444" label={d.lesson}/>)}
+    <div style={{marginTop:20}}>
+      <DataTable headers={["Lesson","# Students","Students Affected"]} rows={data.map(d=>[d.lesson,d.count,d.students.join(", ")])}/>
+    </div>
+  </div>;
+};
+
+const ForgotPage = ({go}) => {
+  const data = aggByLesson(STUDENTS_DATA, q=>q.forgot);
+  return <div>
+    <Back onClick={()=>go("home")}/>
+    <h2 style={{color:C.txt,fontSize:22,fontWeight:800,margin:"0 0 6px"}}>2. Skills Previously Mastered but Forgotten</h2>
+    <p style={{color:C.mut,fontSize:13,marginBottom:20}}>Skills students passed in MobyMax but couldn't apply on the test — a retention and transfer problem.</p>
+    {data.map(d=><Bar key={d.lesson} value={d.count} max={14} color="#d97706" label={d.lesson}/>)}
+    <div style={{marginTop:20}}>
+      <DataTable headers={["Lesson","# Students","Students Affected"]} rows={data.map(d=>[d.lesson,d.count,d.students.join(", ")])}/>
+    </div>
+  </div>;
+};
+
+const InsightsPage = ({go}) => (
+  <div>
+    <Back onClick={()=>go("home")}/>
+    <h2 style={{color:C.txt,fontSize:22,fontWeight:800,margin:"0 0 20px"}}>3. Explanations & Insights</h2>
+    <Section title="The hole-filling pathway is patching, not teaching" accent={C.red}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>When a student scores 60–89% on a test-out, they receive MobyMax lessons only for the specific questions they missed. This creates two problems: the lessons are narrow (a student might practice one main idea question and pass it, but that doesn't build the deeper skill), and gaps only get caught if the test happens to expose them. If a student guesses correctly on a character traits question, the gap goes undetected until a harder test surfaces it.</p>
+    </Section>
+    <Section title="Mastering a MobyMax lesson ≠ mastering the skill" accent={C.amb}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>46% of all gaps involve skills students previously passed in MobyMax — and MobyMax has high mastery standards with built-in remediation until mastered. So these students genuinely demonstrated the skill. Yet vocabulary context clues, event sequencing, and text evidence skills all show high "forgot" rates. These skills require spaced retrieval — repeated active recall across varied contexts over time — not a single pass-through. MobyMax teaches skills in isolation; the test assesses them within full reading passages where multiple skills must be applied simultaneously.</p>
+    </Section>
+    <Section title="Ethan Bale is the curriculum red flag" accent={C.pur}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>As the only student who completed the full course (End of Course, Reading 2.7) and still scored 53.3%, Ethan's 8 "never learned" gaps represent genuine curriculum deficiencies. His biggest gaps — Answer questions about key details (3 misses), Identify Main Topic (2 misses) — suggest the Grade 2 curriculum may not adequately build informational text comprehension. His results should be investigated separately from the test-out students.</p>
+    </Section>
+    <Section title="Some skills are fragile regardless of pathway" accent={C.acc}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>Use an events sequence map appears in both categories almost equally (5 never learned, 6 forgot). Identify Main Topic shows 5 never learned and 4 forgot. A one-time lesson is not enough for these skills — they need ongoing reinforcement regardless of whether a student went through the full course or the hole-filling path.</p>
+    </Section>
+    <Section title="Student profiles fall into distinct types">
+      <div style={{marginBottom:12}}>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:10,flexWrap:"wrap"}}><Tag color="red">100% Never Learned</Tag><span style={{color:C.mut,fontSize:13}}>Anthem Thomas, Elijah Hunter, Nate Kelly — the curriculum simply didn't reach them</span></div>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:10,flexWrap:"wrap"}}><Tag color="amber">100% Forgot</Tag><span style={{color:C.mut,fontSize:13}}>Tristan Lawrence — learned everything but retention failed</span></div>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:10,flexWrap:"wrap"}}><Tag color="purple">Both Problems</Tag><span style={{color:C.mut,fontSize:13}}>Pablo Cortazar — 11 never / 12 forgot across 25 gaps, needs a different approach entirely</span></div>
+      </div>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>The same skill can fail for different reasons for different students. A single intervention strategy won't work for both groups.</p>
+    </Section>
+    <Section title="Knowledge gaps compound — foundations matter most in early grades" accent={C.grn}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>If students keep passing grades without completing full courses, they will eventually hit a wall because knowledge gaps build up. At these early ages, building solid foundations is essential. A student who tests out of Grade 1 with an 85% and then tests out of Grade 2 with a 70% has accumulated gaps from both levels — and those gaps only get harder to fill later. The data shows this compounding effect clearly: students with the most gaps (Pablo, Ethan, Ellis) have the lowest scores and the least growth.</p>
+      <div style={{background:C.grnBg,border:`1px solid ${C.grnBdr}`,borderRadius:8,padding:14,marginTop:12}}>
+        <p style={{color:C.grn,fontSize:13,fontWeight:700,margin:"0 0 4px"}}>Proposal: Eliminate test-outs before Grade 2 unless age grade is more than 1 year above content grade</p>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>Test-outs should only be available for students whose age grade is more than 1 year above their current content (knowledge) grade — meaning they are behind and need to accelerate. For students who are at or near grade level, require them to complete the full course through Grade 2. This ensures every on-track student builds a complete K–2 reading foundation before advancing, while still allowing older students who are behind to catch up efficiently.</p>
+      </div>
+    </Section>
+    <Section title="The 50/50 split">
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>52% of gaps are "never learned" and 46% are "forgot." The problem is not just coverage and not just retention — it's both in nearly equal measure. Fixing only one side leaves the other half unresolved.</p>
+    </Section>
+  </div>
+);
+
+const SolutionsPage = ({go}) => (
+  <div>
+    <Back onClick={()=>go("home")}/>
+    <h2 style={{color:C.txt,fontSize:22,fontWeight:800,margin:"0 0 20px"}}>4. Proposed Solutions</h2>
+    <Section title='Raise the Full-Course Threshold to 70%' accent={C.pur}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>Currently, students scoring below 60% are placed in the full course, while those at 60–89% receive only hole-filling lessons. This data shows that hole-filling alone is insufficient — students at 60–70% are accumulating gaps that compound over time. <strong style={{color:C.txt}}>Raising the full-course placement threshold to 70%</strong> would ensure that students who are clearly struggling (like Pablo Cortazar at 66.7% across 3 tests) receive comprehensive instruction instead of narrow patches. Students scoring 70–89% would continue with hole-filling, and 90%+ would still pass through.</p>
+    </Section>
+    <Section title='For "Never Learned" Gaps — Strengthen the Hole-Filling Pathway' accent={C.red}>
+      <div style={{marginBottom:16}}>
+        <p style={{color:C.txt,fontSize:13,fontWeight:600,margin:"0 0 4px"}}>Assign missing MobyMax lessons immediately</p>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>The data identifies exactly which lessons each student needs. Priority: Identify Main Idea in Paragraph (6 students), Locate facts stated in a text (6), Identify Main Topic (5), Use an events sequence map (5).</p>
+      </div>
+      <div>
+        <p style={{color:C.txt,fontSize:13,fontWeight:600,margin:"0 0 4px"}}>Broaden hole-filling beyond missed questions</p>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>Instead of only assigning lessons for the 2–3 questions missed, include related foundational skills. Pablo Cortazar scored exactly 66.7% on three consecutive tests because the hole-filling wasn't broad enough to break through.</p>
+      </div>
+    </Section>
+    <Section title='For "Forgot" Gaps — Build Retention Into the System' accent={C.amb}>
+      <div style={{marginBottom:16}}>
+        <p style={{color:C.txt,fontSize:13,fontWeight:600,margin:"0 0 4px"}}>Add spaced retrieval practice for high-frequency gaps</p>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>Six students mastered vocabulary context clues but forgot them. Spaced retrieval — brief, periodic review sessions that require students to actively recall previously learned skills — is one of the most evidence-backed strategies for long-term retention. Building spaced retrieval into the MobyMax workflow on previously passed skills would maintain retention between initial learning and testing.</p>
+      </div>
+      <div style={{marginBottom:16}}>
+        <p style={{color:C.txt,fontSize:13,fontWeight:600,margin:"0 0 4px"}}>Require a refresher pass on previously mastered skills</p>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>If a student previously mastered a skill but weeks or months have passed, require a quick MobyMax refresher on that skill. This specifically targets the "forgot" category — students who demonstrated the skill once but lost it. The 6 students who passed the sequencing lesson but failed the test question would be caught by this.</p>
+      </div>
+      <div>
+        <p style={{color:C.txt,fontSize:13,fontWeight:600,margin:"0 0 4px"}}>Move from isolated to integrated skill practice</p>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>The "forgot" pattern suggests students can do skills in MobyMax's controlled environment but can't transfer them to full passages. Assign practice that requires multiple comprehension skills on a single passage, rather than drilling one skill at a time.</p>
+      </div>
+    </Section>
+    <Section title="Individual Student Recommendations" accent={C.acc}>
+      <div style={{marginBottom:16}}>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:6}}><Tag color="red">Critical</Tag><strong style={{color:C.txt,fontSize:13}}>Pablo Cortazar — 25 gaps, stuck at 66.7% across 3 tests</strong></div>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>The self-paced MobyMax approach is not breaking through. Consider a coaching call to diagnose whether the issue is comprehension, test-taking strategy, or engagement. His ceiling hasn't moved in months despite repeated testing and hole-filling.</p>
+      </div>
+      <div style={{marginBottom:16}}>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:6}}><Tag color="purple">Investigate</Tag><strong style={{color:C.txt,fontSize:13}}>Ethan Bale — 13 gaps, 53.3% End of Course</strong></div>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>Investigate the Grade 2 curriculum itself. His gaps after completing the full course suggest the curriculum doesn't adequately build informational text comprehension. A coaching call focused on "going back to the text" strategies could help.</p>
+      </div>
+      <div style={{marginBottom:16}}>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:6}}><Tag color="green">Quick Wins</Tag><strong style={{color:C.txt,fontSize:13}}>Charlie Booth, Tristan Lawrence, Elijah Hunter, Nate Kelly</strong></div>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>These students have 2–5 gaps each. Assigning their specific missing MobyMax lessons should push them over the passing threshold with minimal intervention.</p>
+      </div>
+      <div>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:6}}><Tag color="amber">Retention Focus</Tag><strong style={{color:C.txt,fontSize:13}}>Cora Ishaq, Phoenix Smith, Dean Woods</strong></div>
+        <p style={{color:C.mut,fontSize:13,lineHeight:1.7,margin:0}}>These students mostly learned the material but couldn't retain it. Spaced MobyMax review and integrated passage practice should be prioritized over new lessons.</p>
+      </div>
+    </Section>
+  </div>
+);
+
+const StudentsListPage = ({go}) => {
+  const sorted = [...STUDENTS_DATA].sort((a,b)=>b.total_gaps-a.total_gaps);
+  return <div>
+    <Back onClick={()=>go("home")}/>
+    <h2 style={{color:C.txt,fontSize:22,fontWeight:800,margin:"0 0 6px"}}>5. Student Profiles</h2>
+    <p style={{color:C.mut,fontSize:13,marginBottom:20}}>Click any student to see their full gap analysis.</p>
+    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+      {sorted.map(s=>{
+        const pct = parseFloat(s.accuracy[s.accuracy.length-1]?.score)||0;
+        const scoreColor = pct>=85?C.grn:pct>=70?C.amb:C.red;
+        return <button key={s.name} onClick={()=>go("student:"+s.name)} style={{background:C.card,border:`1px solid ${C.bdr}`,borderRadius:10,padding:"14px 16px",cursor:"pointer",textAlign:"left",boxShadow:C.shadow,transition:"all 0.15s"}}
+          onMouseEnter={e=>{e.currentTarget.style.background=C.cardH;e.currentTarget.style.transform="translateY(-1px)";}} onMouseLeave={e=>{e.currentTarget.style.background=C.card;e.currentTarget.style.transform="none";}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+            <span style={{color:C.txt,fontSize:14,fontWeight:600}}>{s.name}</span>
+            <span style={{color:scoreColor,fontSize:14,fontWeight:700}}>{s.accuracy[s.accuracy.length-1]?.score}</span>
+          </div>
+          <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:8}}>
+            {s.accuracy.map((a,i)=><Tag key={i} color={a.type==="End of Course"?"purple":"blue"}>{a.type==="End of Course"?"EOC":"TO"} {a.test.replace("Reading ","")}</Tag>)}
+          </div>
+          <div style={{display:"flex",gap:8,fontSize:12}}>
+            <span style={{color:C.red}}>{s.never_count} never</span>
+            <span style={{color:C.dim}}>·</span>
+            <span style={{color:C.amb}}>{s.forgot_count} forgot</span>
+            <span style={{color:C.dim}}>·</span>
+            <span style={{color:C.mut}}>{s.total_gaps} total</span>
+          </div>
+        </button>;
+      })}
+    </div>
+  </div>;
+};
+
+const StudentPage = ({name,go}) => {
+  const s = STUDENTS_DATA.find(x=>x.name===name);
+  if(!s) return <div><Back onClick={()=>go("students")}/><p style={{color:C.txt}}>Student not found.</p></div>;
+  
+  const uniqueLessons = {};
+  s.questions.forEach(q=>{
+    if(!uniqueLessons[q.lesson]) uniqueLessons[q.lesson]={lesson:q.lesson,never:q.never_learned,forgot:q.forgot,count:0};
+    uniqueLessons[q.lesson].count++;
+  });
+  const lessons = Object.values(uniqueLessons).sort((a,b)=>b.count-a.count);
+  
+  const grouped = {};
+  s.questions.forEach(q=>{
+    const key = q.test+"|"+q.qnum;
+    if(!grouped[key]) grouped[key]={test:q.test,qnum:q.qnum,concept:q.concept,standard:q.standard,lessons:[]};
+    grouped[key].lessons.push({lesson:q.lesson,never:q.never_learned,forgot:q.forgot});
+  });
+  const qGroups = Object.values(grouped);
+  
+  const pct = parseFloat(s.accuracy[s.accuracy.length-1]?.score)||0;
+  const scoreColor = pct>=85?C.grn:pct>=70?C.amb:C.red;
+  
+  return <div>
+    <Back onClick={()=>go("students")}/>
+    <div style={{marginBottom:20}}>
+      <h2 style={{color:C.txt,fontSize:22,fontWeight:800,margin:"0 0 8px"}}>{s.name}</h2>
+      <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+        {s.accuracy.map((a,i)=><Tag key={i} color={a.type==="End of Course"?"purple":"blue"}>{a.type} · {a.test} · {a.score} ({a.detail})</Tag>)}
+        {s.growth&&s.growth!=="0"&&<Tag color="green">MAP Growth: {s.growth}×</Tag>}
+      </div>
+    </div>
+    <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:20}}>
+      <Stat label="Total Gaps" value={s.total_gaps} accent={C.acc}/>
+      <Stat label="Never Learned" value={s.never_count} color={C.red} accent={C.red}/>
+      <Stat label="Forgot" value={s.forgot_count} color={C.amb} accent={C.amb}/>
+      <Stat label="Latest Score" value={s.accuracy[s.accuracy.length-1]?.score||"—"} color={scoreColor} accent={scoreColor}/>
+    </div>
+    {s.insights&&<Section title="Analysis" accent={C.pur}>
+      <p style={{color:C.mut,fontSize:13,lineHeight:1.8,margin:0}}>{s.insights}</p>
+    </Section>}
+    <Section title="Lesson Gaps" accent={C.acc}>
+      <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+        {lessons.map(l=>{
+          const gapColor = l.count>=5?"red":l.count>=3?"amber":"green";
+          const gapStyles = {red:{bg:C.redBg,bdr:C.redBdr,txt:C.red},amber:{bg:C.ambBg,bdr:C.ambBdr,txt:C.amb},green:{bg:C.grnBg,bdr:C.grnBdr,txt:C.grn}}[gapColor];
+          return <div key={l.lesson} style={{background:gapStyles.bg,border:`1px solid ${gapStyles.bdr}`,borderRadius:8,padding:"8px 12px",fontSize:13}}>
+            <span style={{color:gapStyles.txt,fontWeight:600}}>{l.lesson}</span>
+            <span style={{color:C.dim,marginLeft:8}}>×{l.count}</span>
+            <span style={{marginLeft:6}}>{l.never?<Tag color="red">Never learned</Tag>:<Tag color="amber">Forgot</Tag>}</span>
+          </div>;
+        })}
+      </div>
+    </Section>
+    <Section title="Missed Questions Detail">
+      {qGroups.map((q,i)=>{
+        const totalHits = q.lessons.length;
+        const qColor = totalHits>=5?"red":totalHits>=3?"amber":"green";
+        const qBdr = {red:C.redBdr,amber:C.ambBdr,green:C.grnBdr}[qColor];
+        return <div key={i} style={{background:C.bg,borderRadius:8,padding:14,marginBottom:10,border:`1px solid ${qBdr}`,borderLeft:`3px solid ${{red:C.red,amber:C.amb,green:C.grn}[qColor]}`}}>
+          <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:6,flexWrap:"wrap"}}>
+            <span style={{background:C.acc,color:"#fff",borderRadius:6,padding:"2px 10px",fontSize:12,fontWeight:700}}>Q{q.qnum}</span>
+            {q.test&&<span style={{color:C.dim,fontSize:12}}>{q.test}</span>}
+            {q.standard&&<Tag color="blue">{q.standard}</Tag>}
+          </div>
+          <p style={{color:C.mut,fontSize:12,margin:"0 0 8px",lineHeight:1.6}}>{q.concept}</p>
+          <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+            {q.lessons.map((l,j)=><Tag key={j} color={l.never?"red":"amber"}>{l.lesson}</Tag>)}
+          </div>
+        </div>;
+      })}
+    </Section>
+  </div>;
+};
+
+// ============ MAIN APP ============
+
+function App() {
+  const [page, setPage] = useState("home");
+  const go = (p) => setPage(p);
+  
+  let content;
+  if (page === "home") content = <HomePage go={go}/>;
+  else if (page === "never") content = <NeverPage go={go}/>;
+  else if (page === "forgot") content = <ForgotPage go={go}/>;
+  else if (page === "insights") content = <InsightsPage go={go}/>;
+  else if (page === "solutions") content = <SolutionsPage go={go}/>;
+  else if (page === "students") content = <StudentsListPage go={go}/>;
+  else if (page.startsWith("student:")) content = <StudentPage name={page.replace("student:","")} go={go}/>;
+  else content = <HomePage go={go}/>;
+  
+  return (
+    <div style={{background:C.bg,minHeight:"100vh",padding:"24px 20px",fontFamily:"'Segoe UI',system-ui,sans-serif"}}>
+      <div style={{maxWidth:900,margin:"0 auto"}}>
+        {content}
+      </div>
+    </div>
+  );
+}
+
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
